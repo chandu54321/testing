@@ -3,10 +3,9 @@ pool:
 trigger:
 - main
 variables:
-  AWS_ACCESS_KEY_IDs:  $(AWS_ACCESS_KEY_ID)
-  AWS_SECRET_ACCESS_KEYs: $(AWS_SECRET_ACCESS_KEY)
-  awsSubscription: 'AWS_SERVICE'
-
+  AWS_ACCESS_KEY_ID:  $(AWS_ACCESS_KEY)
+  AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_KEY)
+  
   
 stages:
   - stage: Deploy
@@ -23,5 +22,5 @@ stages:
               terraform apply -auto-approve
             displayName: 'Terraform Apply'
             env:
-              AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_IDs)
-              AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEYs)
+              AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
+              AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)
