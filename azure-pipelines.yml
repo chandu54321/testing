@@ -12,13 +12,13 @@ stages:
     jobs:
       - job: TerraformJob
         steps:
-          - bash: |
+          - script: |
               terraform init
             displayName: 'Terraform Init'
-          - bash: |
+          - script: |
               terraform plan 
             displayName: 'Terraform Plan'
-          - bash: |
+          - script: |
               terraform apply -auto-approve
             displayName: 'Terraform Apply'
             env:
