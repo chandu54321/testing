@@ -9,3 +9,11 @@ resource "aws_vpc" "main" {
     Environment = "dev"
   }
 }
+resource "aws_subnet" "first" {
+  cidr_block = "10.0.1.0/24"
+  vpc_id     = aws_vpc.main.id
+  tags = {
+    Name = "web-1"
+  }
+
+}
